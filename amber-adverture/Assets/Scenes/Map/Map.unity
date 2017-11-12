@@ -1130,6 +1130,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hp: 3
   sp: 500
+  maxSp: 500
+  recoverRatio: 1
   coins: 0
 --- !u!4 &1498661298
 Transform:
@@ -1275,6 +1277,7 @@ GameObject:
   - component: {fileID: 1811653717}
   - component: {fileID: 1811653719}
   - component: {fileID: 1811653718}
+  - component: {fileID: 1811653720}
   m_Layer: 0
   m_Name: UnityChanAnim
   m_TagString: Untagged
@@ -1356,6 +1359,17 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
+--- !u!114 &1811653720
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1811653716}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7523c2281d191bd4e8fbc800c8921bff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1832493624
 GameObject:
   m_ObjectHideFlags: 0
@@ -1540,6 +1554,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a991468401ff8664bbe12162c35a3d21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spCost_attack1: 50
+  spCost_attack3: 150
+  spCost_shot: 100
 --- !u!4 &1924499098 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4488351723355568, guid: 94ab226235fc8054ab3388a66a12181a,
