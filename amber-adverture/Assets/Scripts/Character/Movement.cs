@@ -28,6 +28,12 @@ public class Movement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (GameplayManager.instance.pause)
+        {
+            StopMoving();
+            return;
+        }
+
         Move();
 
         GroundedDetect();
@@ -61,7 +67,7 @@ public class Movement : MonoBehaviour
         float moveThreshold = 0;
 
         // Run
-        if (absSpeed > 0 && Input.GetKey(KeyCode.Z))
+        if (absSpeed > 0 && Input.GetKey(KeyCode.V))
         {
             speed = runSpeed;
             moveThreshold = 1f;
@@ -108,6 +114,12 @@ public class Movement : MonoBehaviour
     {
         animator.SetBool("Grounded", grounded);
         animator.SetFloat("SpeedY", character.velocity.y);
+    }
+
+    void StopMoving()
+    {
+        character.velocity = new Vector2(0, 0);
+        animator.SetFloat("Move", 0);
     }
 
 }
