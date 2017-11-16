@@ -33,6 +33,7 @@ public class DialogSystem : MonoBehaviour
     private string[] stories; // 将 storyAsset 存储到对话数组中
     private int storiesIndex = 0; // 对话数组当前索引
     private string line; // 读取到的一行数据
+    private bool isPrintting = false; // 是否在打印中
 
     void Awake()
     {
@@ -65,8 +66,8 @@ public class DialogSystem : MonoBehaviour
         // 储存剧本
         stories = storyAsset.text.Split('\n');
 
-		// 避免 End 之后重新开始对话 storiesIndex 为最后一行
-		storiesIndex = 0;
+        // 避免 End 之后重新开始对话 storiesIndex 为最后一行
+        storiesIndex = 0;
         // 读取第一行
         Next();
 
@@ -78,7 +79,7 @@ public class DialogSystem : MonoBehaviour
         isDialog = false;
         HideAnim();
 
-		// 等待1秒后执行下面的代码
+        // 等待1秒后执行下面的代码
         yield return new WaitForSeconds(1f);
         mainUi.SetActive(true);
         GameplayManager.instance.pause = false;
@@ -90,6 +91,14 @@ public class DialogSystem : MonoBehaviour
     // @0>3 是表情行，以 @ 开头; 0>3：0 代表主角，其他代表 npc; 3 代表表情数组的索引
     public void Next()
     {
+        // 在打印期间再次按下空格,则直接打印整句(正在打印中的这句)
+        if (isPrintting)
+        {
+            content.text = line;
+            isPrintting = false;
+            return;
+        }
+
         // 读完所有行
         if (storiesIndex >= stories.Length - 1)
         {
@@ -134,16 +143,20 @@ public class DialogSystem : MonoBehaviour
     IEnumerator PrintContent()
     {
         int charIndex = 0;
-        string sentence = line.Substring(2); // 去掉 1:
+        line = line.Substring(2); // 去掉 1:
         content.text = "";
+        isPrintting = true;
 
-        while (true)
+        while (isPrintting)
         {
-            content.text += sentence[charIndex];
+            content.text += line[charIndex];
             charIndex++;
 
-            if (charIndex >= sentence.Length)
+            if (charIndex >= line.Length)
+            {
+                isPrintting = false;
                 break;
+            }
 
             yield return new WaitForSeconds(0.05f);
         }
