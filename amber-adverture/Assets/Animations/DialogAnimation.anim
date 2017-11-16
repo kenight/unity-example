@@ -115,7 +115,7 @@ AnimationClip:
         tangentMode: 136
       - serializedVersion: 2
         time: 0.6666667
-        value: -292
+        value: -228
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -123,7 +123,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.y
-    path: Dialog
+    path: DialogForm
     classID: 224
     script: {fileID: 0}
   - curve:
@@ -137,7 +137,7 @@ AnimationClip:
         tangentMode: 136
       - serializedVersion: 2
         time: 0.6666667
-        value: 248
+        value: 312
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -145,7 +145,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_AnchoredPosition.y
-    path: Dialog
+    path: DialogForm
     classID: 224
     script: {fileID: 0}
   m_PPtrCurves: []
@@ -277,7 +277,7 @@ AnimationClip:
         tangentMode: 136
       - serializedVersion: 2
         time: 0.6666667
-        value: -292
+        value: -228
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -285,7 +285,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.y
-    path: Dialog
+    path: DialogForm
     classID: 224
     script: {fileID: 0}
   - curve:
@@ -299,7 +299,7 @@ AnimationClip:
         tangentMode: 136
       - serializedVersion: 2
         time: 0.6666667
-        value: 248
+        value: 312
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -307,7 +307,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_AnchoredPosition.y
-    path: Dialog
+    path: DialogForm
     classID: 224
     script: {fileID: 0}
   m_EulerEditorCurves: []

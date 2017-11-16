@@ -10,11 +10,8 @@ public class GameplayManager : MonoBehaviour
     public float maxSp = 500f;
     public float recoverRatio = 1f;
     public int coins = 0;
-
     [HideInInspector]
     public bool pause = false;
-    public GameObject mainUi;
-    public DialogUi dialogUiScript;
 
     // Use this for initialization
     void Awake()
@@ -41,20 +38,4 @@ public class GameplayManager : MonoBehaviour
         sp = Mathf.Clamp(sp + 100 * Time.deltaTime * recoverRatio, 0, maxSp);
     }
 
-    // 开启 npc 对话框
-    public void ShowDialog()
-    {
-        pause = true;
-        mainUi.SetActive(false);
-        dialogUiScript.enabled = true;
-        dialogUiScript.Show();
-    }
-
-    public void HideDialog()
-    {
-        pause = false;
-        mainUi.SetActive(true);
-        dialogUiScript.Hide();
-        dialogUiScript.enabled = false;
-    }
 }

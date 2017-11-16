@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+// 脚本功能：触发对话
 public class Npc : MonoBehaviour
 {
     public GameObject buttonZ;
@@ -12,8 +13,13 @@ public class Npc : MonoBehaviour
         if (!canTalk)
             return;
 
+        TriggerDialog();
+    }
+
+    void TriggerDialog()
+    {
         if (Input.GetKeyDown(KeyCode.Z) && GameplayManager.instance.pause == false)
-            GameplayManager.instance.ShowDialog();
+            DialogSystem.instance.Begin();
     }
 
     void OnTriggerEnter2D(Collider2D other)
