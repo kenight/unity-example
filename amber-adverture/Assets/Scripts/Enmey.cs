@@ -5,12 +5,14 @@ using UnityEngine;
 public class Enmey : MonoBehaviour
 {
     public float speed = 10f;
-    public float stopDistance = 1.2f;
+    public float attackDistance = 1.2f;
     public Vector2 searchRange = new Vector2(6, 2);
     private Animator anim;
     private bool isFollow = false;
+    private bool attack = false;
     private Transform player;
     private Rigidbody2D enmey;
+    private bool facingLeft = true;
 
     void Awake()
     {
@@ -23,15 +25,25 @@ public class Enmey : MonoBehaviour
     {
         StartCoroutine(SearchPlayer());
 
-        anim.SetBool("Move", isFollow);
-
         float offset = player.position.x - transform.position.x;
 
-        if (Mathf.Abs(offset) <= stopDistance)
-            isFollow = false;
+        anim.SetBool("Move", isFollow);
 
         if (isFollow)
+        {
             FollowPlayer(offset);
+            // 判断是否进入攻击距离
+            attack = Mathf.Abs(offset) <= attackDistance;
+            if (attack)
+                enmey.velocity = new Vector2(0, 0);
+            anim.SetBool("Attack", attack);
+        }
+
+        if (enmey.velocity.x < 0 && !facingLeft)
+            Flip();
+        else if (enmey.velocity.x > 0 && facingLeft)
+            Flip();
+
     }
 
     void FollowPlayer(float offset)
@@ -59,6 +71,14 @@ public class Enmey : MonoBehaviour
             isFollow = true;
         else
             isFollow = false;
+    }
+
+    void Flip()
+    {
+        facingLeft = !facingLeft;
+        Vector3 scale = transform.localScale;
+        scale.x = scale.x * -1;
+        transform.localScale = scale;
     }
 
 }
