@@ -5,7 +5,10 @@ using UnityEngine;
 [RequireComponent(typeof(Movement))]
 public class Attack : MonoBehaviour
 {
-
+    public GameObject bullet;
+    public Transform shotPoint;
+    public float shotInterval = 0.1f;
+    private float timer; // 计时器
     private Animator animator;
     private AnimatorStateInfo stateInfo;
     private Movement movementComponent;
@@ -17,6 +20,7 @@ public class Attack : MonoBehaviour
     {
         animator = GetComponentInChildren<Animator>();
         movementComponent = GetComponent<Movement>();
+        timer = shotInterval;
     }
 
     void Update()
@@ -58,6 +62,10 @@ public class Attack : MonoBehaviour
             else
                 GameplayManager.instance.ConsumeSp(spCost_shot * Time.deltaTime);
         }
+
+        if (animator.GetBool("Shot"))
+            Shot();
+
     }
 
     // 对 Tag 标记为 LockedState 的状态进行锁定
@@ -84,6 +92,16 @@ public class Attack : MonoBehaviour
     void Attacke1Sp()
     {
         GameplayManager.instance.ConsumeSp(spCost_attack1);
+    }
+
+    void Shot()
+    {
+        timer -= Time.fixedDeltaTime;
+        if (timer <= 0)
+        {
+            Instantiate(bullet, shotPoint.position, Quaternion.identity);
+            timer = shotInterval;
+        }
     }
 
 }
