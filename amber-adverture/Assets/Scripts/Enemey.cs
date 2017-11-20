@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enmey : MonoBehaviour
+public class Enemey : MonoBehaviour
 {
     public float speed = 10f;
     public float attackDistance = 1.2f;
