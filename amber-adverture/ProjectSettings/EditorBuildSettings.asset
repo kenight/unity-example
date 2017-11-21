@@ -11,3 +11,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Start/Start.unity
     guid: 3cb81aba15920df458ca2ea3fc7f0af3
+  - enabled: 1
+    path: Assets/Scenes/Map/MapCommon.unity
+    guid: 9550537d3040740418daa7da938c2672
+  - enabled: 1
+    path: Assets/Scenes/Map/Village.unity
+    guid: 3f4d8031138362b46b92189bd0708558
+  - enabled: 1
+    path: Assets/Scenes/Map/Level001.unity
+    guid: b2681fa2667dc8042a17ce3d2ab0ba05

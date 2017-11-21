@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+// 通过定义一个 3d Collider 来限制范围
 public class CameraFollow : MonoBehaviour
 {
 
@@ -39,9 +40,9 @@ public class CameraFollow : MonoBehaviour
         transform.position = new Vector3(x, y, transform.position.z);
     }
 
+    // 获取可视区域高宽的一半
     void GetVisible()
     {
-        // 可视区域宽度与高度的一半
         float distance = Mathf.Abs(transform.position.z);
         visibleHeight = distance * Mathf.Tan(thisCamera.fieldOfView * 0.5f * Mathf.Deg2Rad);
         visibleWidth = visibleHeight * thisCamera.aspect;
