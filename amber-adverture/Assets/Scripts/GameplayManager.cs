@@ -38,4 +38,11 @@ public class GameplayManager : MonoBehaviour
         sp = Mathf.Clamp(sp + 100 * Time.deltaTime * recoverRatio, 0, maxSp);
     }
 
+    public IEnumerator GameOver()
+    {
+        pause = true;
+        yield return new WaitForSeconds(2f);
+        GetComponent<GoAndFadeOut>().NextScene();
+    }
+
 }

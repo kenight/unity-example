@@ -28,7 +28,8 @@ public class Movement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (GameplayManager.instance.pause)
+        // 如果暂停，或播放 Damage 动画时，禁止移动
+        if (GameplayManager.instance.pause || animator.GetCurrentAnimatorStateInfo(0).IsName("Base Layer.Damage"))
         {
             StopMoving();
             return;

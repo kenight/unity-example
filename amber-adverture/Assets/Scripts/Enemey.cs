@@ -5,6 +5,7 @@ using UnityEngine;
 public class Enemey : MonoBehaviour
 {
     public float speed = 10f;
+    public int hp = 10;
     public float attackDistance = 1.2f;
     public Vector2 searchRange = new Vector2(6, 2);
     private Animator anim;
@@ -79,6 +80,18 @@ public class Enemey : MonoBehaviour
         Vector3 scale = transform.localScale;
         scale.x = scale.x * -1;
         transform.localScale = scale;
+    }
+
+    public void TakeDamage(int damage)
+    {
+        hp -= damage;
+
+        anim.SetTrigger("Hurt");
+
+        if (hp <= 0)
+        {
+            anim.SetTrigger("Dead");
+        }
     }
 
 }

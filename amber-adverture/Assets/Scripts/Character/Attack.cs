@@ -104,4 +104,22 @@ public class Attack : MonoBehaviour
         }
     }
 
+    public void TakeDamage(int damage)
+    {
+        // 排除掉从 Damage Stat 进入 Damage Stat (Any Stat 包括 Damage Stat 自身)
+        if (stateInfo.IsName("Base Layer.Damage"))
+            return;
+
+        GameplayManager.instance.hp -= damage;
+
+        animator.SetTrigger("TakeDamage");
+
+        if (GameplayManager.instance.hp <= 0)
+        {
+            animator.SetTrigger("Dead");
+            gameObject.tag = "Finish"; // 改 tag , 使碰撞检测无用
+            StartCoroutine(GameplayManager.instance.GameOver());
+        }
+    }
+
 }

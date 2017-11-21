@@ -10,7 +10,7 @@ public class GoAndFadeOut : MonoBehaviour
     public GameObject SceneFade;
     public float waitSecond = 0.5f;
 
-    void NextScene()
+    public void NextScene()
     {
         StartCoroutine(FadeAndWait());
     }

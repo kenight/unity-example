@@ -12,13 +12,18 @@ public class MainUi : MonoBehaviour
     public Animation coinAnim;
     public Text coinText;
     private int lastCoinAmout = 0;
+    private float lastHp;
+    private List<GameObject> heartArray = new List<GameObject>();
 
     void Start()
     {
         // 初始化血量
+        lastHp = GameplayManager.instance.hp;
+
         for (int i = 0; i < GameplayManager.instance.hp; i++)
         {
-            Instantiate(heart, bloodBar);
+            GameObject h = Instantiate(heart, bloodBar);
+            heartArray.Add(h);
         }
 
         // 初始化金币
@@ -29,7 +34,7 @@ public class MainUi : MonoBehaviour
     {
         // update ui
         InitSpBar();
-
+        UpdateHeart();
         UpdateCoins();
     }
 
@@ -39,7 +44,19 @@ public class MainUi : MonoBehaviour
         spBar.sizeDelta = new Vector2(x, spBar.sizeDelta.y);
     }
 
-    public void UpdateCoins()
+    // 更新血量
+    void UpdateHeart()
+    {
+        if (GameplayManager.instance.hp < lastHp && heartArray.Count > 0)
+        {
+            GameObject toDestory = heartArray[heartArray.Count - 1];
+            Destroy(toDestory);
+            heartArray.Remove(toDestory);
+            lastHp = GameplayManager.instance.hp;
+        }
+    }
+
+    void UpdateCoins()
     {
         if (GameplayManager.instance.coins > lastCoinAmout)
         {

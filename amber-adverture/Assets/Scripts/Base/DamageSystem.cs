@@ -5,14 +5,26 @@ using UnityEngine;
 public class DamageSystem : MonoBehaviour
 {
     public int damage = 1;
-    public string compareTag = "Player";
+    public DamageTarget damageTarget = DamageTarget.Enemey;
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag(compareTag))
+        switch (damageTarget)
         {
-            other.GetComponent<HealthSystem>().TakeDamage(damage);
+            case DamageTarget.Enemey:
+                if (other.CompareTag("Enemey"))
+                    other.GetComponent<Enemey>().TakeDamage(damage);
+                break;
+            case DamageTarget.Player:
+                if (other.CompareTag("Player"))
+                    other.GetComponent<Attack>().TakeDamage(damage);
+                break;
         }
+    }
 
+    public enum DamageTarget
+    {
+        Player,
+        Enemey
     }
 }
