@@ -9,23 +9,17 @@ public class EventOnCollision : EventOnCollisionBase
     void OnCollisionEnter2D(Collision2D other)
     {
         if (when == When.Enter)
-            UnityEventExc(other);
+            Execute(other.collider);
 
     }
     void OnCollisionExit2D(Collision2D other)
     {
         if (when == When.Exit)
-            UnityEventExc(other);
+            Execute(other.collider);
     }
     void OnCollisionStay2D(Collision2D other)
     {
         if (when == When.Stay)
-            UnityEventExc(other);
-    }
-
-    void UnityEventExc(Collision2D other)
-    {
-        if (!enableCompare || other.collider.CompareTag(compareFor))
-            unityEvent.Invoke();
+            Execute(other.collider);
     }
 }

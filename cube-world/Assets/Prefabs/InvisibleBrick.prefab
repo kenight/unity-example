@@ -9,32 +9,32 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1453477277311812}
+  m_RootGameObject: {fileID: 1181438374948862}
   m_IsPrefabParent: 1
---- !u!1 &1453477277311812
+--- !u!1 &1181438374948862
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 5
   m_Component:
-  - component: {fileID: 4166084887849608}
-  - component: {fileID: 212135972068613722}
-  - component: {fileID: 61772203854025292}
-  - component: {fileID: 114936724151093872}
+  - component: {fileID: 4683661666684110}
+  - component: {fileID: 212731597278127996}
+  - component: {fileID: 61433149418742306}
+  - component: {fileID: 114654547658301114}
   m_Layer: 0
-  m_Name: Zhuangkuai
+  m_Name: InvisibleBrick
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4166084887849608
+--- !u!4 &4683661666684110
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1453477277311812}
+  m_GameObject: {fileID: 1181438374948862}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.6, y: 0.6, z: 0.6}
@@ -42,12 +42,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!61 &61772203854025292
+--- !u!61 &61433149418742306
 BoxCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1453477277311812}
+  m_GameObject: {fileID: 1181438374948862}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 6200000, guid: f48538b6a6fbc0b408e464aef99dafd0, type: 2}
@@ -67,12 +67,12 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2.1, y: 2.1}
   m_EdgeRadius: 0
---- !u!114 &114936724151093872
+--- !u!114 &114654547658301114
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1453477277311812}
+  m_GameObject: {fileID: 1181438374948862}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 112168457b6fee2408987d721f3082da, type: 3}
@@ -81,10 +81,11 @@ MonoBehaviour:
   when: 0
   enableCompare: 1
   compareFor: Player
+  onlyOnce: 1
   unityEvent:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 212135972068613722}
+      - m_Target: {fileID: 212731597278127996}
         m_MethodName: set_enabled
         m_Mode: 6
         m_Arguments:
@@ -97,12 +98,14 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!212 &212135972068613722
+  useCustomize: 0
+  customFunc: {fileID: 0}
+--- !u!212 &212731597278127996
 SpriteRenderer:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1453477277311812}
+  m_GameObject: {fileID: 1181438374948862}
   m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 0

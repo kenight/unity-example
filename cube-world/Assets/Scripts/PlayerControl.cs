@@ -12,7 +12,8 @@ public class PlayerControl : MonoBehaviour
 
     private bool faceRight = true;
     private Rigidbody2D player;
-    private Animator animator;
+    [HideInInspector]
+    public Animator animator;
     // Horizontal
     private float hAxis;
     // 是否起跳
@@ -81,6 +82,14 @@ public class PlayerControl : MonoBehaviour
         animator.SetFloat("Speed", Mathf.Abs(hAxis));
         animator.SetFloat("SpeedY", player.velocity.y);
         animator.SetBool("Grouned", grounded);
+    }
+
+    // 停止所有行动
+    public void StopAction()
+    {
+        player.velocity = new Vector2(0, 0);
+        animator.SetFloat("Speed", 0);
+        animator.SetFloat("SpeedY", 0);
     }
 
 }
