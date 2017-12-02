@@ -1,0 +1,62 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: TRexAtlas
+  m_EditorData:
+    textureSettings:
+      serializedVersion: 2
+      anisoLevel: 1
+      compressionQuality: 50
+      maxTextureSize: 2048
+      textureCompression: 0
+      filterMode: 1
+      generateMipMaps: 0
+      readable: 0
+      crunchedCompression: 0
+      sRGB: 0
+    platformSettings: []
+    packingParameters:
+      serializedVersion: 2
+      padding: 4
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 1
+      enableTightPacking: 1
+    packedHash:
+      serializedVersion: 2
+      Hash: 708a0000a5617c7cfab25d748c1aa70c
+    variantMultiplier: 1
+    bindAsDefault: 1
+    finalFormat: 4
+    hashString: 708a0000a5617c7cfab25d748c1aa70c
+    totalSpriteSurfaceArea: 356284
+    packables:
+    - {fileID: 2800000, guid: 8dc3042d2c9d42849805ae13d08798c2, type: 3}
+    packedSpriteRenderDataKeys:
+    - 8dc3042d2c9d42849805ae13d08798c2: 21300000
+    - 8dc3042d2c9d42849805ae13d08798c2: 21300002
+    - 8dc3042d2c9d42849805ae13d08798c2: 21300006
+    - 8dc3042d2c9d42849805ae13d08798c2: 21300004
+    - 8dc3042d2c9d42849805ae13d08798c2: 21300008
+    - 8dc3042d2c9d42849805ae13d08798c2: 21300010
+  m_MasterAtlas: {fileID: 0}
+  m_PackedSprites:
+  - {fileID: 21300000, guid: 8dc3042d2c9d42849805ae13d08798c2, type: 3}
+  - {fileID: 21300002, guid: 8dc3042d2c9d42849805ae13d08798c2, type: 3}
+  - {fileID: 21300006, guid: 8dc3042d2c9d42849805ae13d08798c2, type: 3}
+  - {fileID: 21300004, guid: 8dc3042d2c9d42849805ae13d08798c2, type: 3}
+  - {fileID: 21300008, guid: 8dc3042d2c9d42849805ae13d08798c2, type: 3}
+  - {fileID: 21300010, guid: 8dc3042d2c9d42849805ae13d08798c2, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - t_rex_body
+  - t_rex_leg
+  - t_rex_jaw_open
+  - t_rex_head
+  - t_rex_jaw_open_back
+  - t_rex_parts_5
+  m_Tag: TRexAtlas
+  m_IsVariant: 0
