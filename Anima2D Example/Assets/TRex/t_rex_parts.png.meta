@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 8dc3042d2c9d42849805ae13d08798c2
-timeCreated: 1512229977
+timeCreated: 1512318027
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -10,6 +10,7 @@ TextureImporter:
     21300006: t_rex_jaw_open
     21300008: t_rex_jaw_open_back
     21300010: t_rex_parts_5
+    21300012: t_rex_parts_0
   externalObjects: {}
   serializedVersion: 4
   mipmaps:
@@ -87,12 +88,12 @@ TextureImporter:
       name: t_rex_body
       rect:
         serializedVersion: 2
-        x: 28
-        y: 712
-        width: 801
-        height: 310
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 23
+        y: 707
+        width: 779.21313
+        height: 317
+      alignment: 9
+      pivot: {x: 0.52039677, y: 0.5047319}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -101,12 +102,12 @@ TextureImporter:
       name: t_rex_leg
       rect:
         serializedVersion: 2
-        x: 20
-        y: 384
-        width: 133
-        height: 292
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 13
+        y: 377
+        width: 147
+        height: 305
+      alignment: 9
+      pivot: {x: 0.5, y: 0.50163937}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -120,7 +121,7 @@ TextureImporter:
         width: 179
         height: 121
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -129,12 +130,12 @@ TextureImporter:
       name: t_rex_jaw_open
       rect:
         serializedVersion: 2
-        x: 472
-        y: 464
-        width: 177
-        height: 197
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 465
+        y: 457
+        width: 191
+        height: 211
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -143,12 +144,12 @@ TextureImporter:
       name: t_rex_jaw_open_back
       rect:
         serializedVersion: 2
-        x: 683
-        y: 521
-        width: 110
-        height: 111
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 678
+        y: 515
+        width: 122
+        height: 122
+      alignment: 9
+      pivot: {x: 0.49180326, y: 0.50409836}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -162,7 +163,7 @@ TextureImporter:
         width: 25
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -170,6 +171,6 @@ TextureImporter:
     outline: []
     physicsShape: []
   spritePackingTag: 
-  userData: 
+  userData: 99110627295096
   assetBundleName: 
   assetBundleVariant: 
