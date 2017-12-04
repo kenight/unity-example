@@ -9,7 +9,7 @@ TRex
 进行绑定与调整权重，绑定完成后将看到 Skinned Mesh Renderer 组件将取代 Mesh Renderer 组件
 
 
-一些技巧：
+一些说明与技巧：
 
 * 快速调整网格点
 创建 Sprite Mesh 时先使用自动 Slice
@@ -23,3 +23,11 @@ TRex
 * 一根骨骼可以同时控制多个 Sprite：
 比如常见的情况是两个 Sprite 有重叠，完全可以将这两个 Sprite Mesh 绑定一根骨骼，即将两组网格蒙皮到一根骨骼上
 同样的，一组骨骼也可以绑定到多个 Sprite Mesh 上，如 TRex 模型中张开的嘴与牙齿
+
+* Pose Manager 组件
+用于存储 Pose 以及在之后恢复到该 Pose
+
+* Control 组件
+用于暴露主要的、需要控制的骨骼，通过控制挂上该脚本的 "空物体" 来控制绑定到该脚本的 "骨骼"
+可以方便在动画中控制该物件来建立关键帧
+该脚本只是简单的赋值了绑定骨骼的 position
