@@ -4,7 +4,10 @@ using UnityEngine;
 
 public class MicrophoneInput : MonoBehaviour {
 
-	public float volume;
+	[Range(1, 10)]
+	public float boost = 1;
+	public static float volume;
+	private int sampleLength = 128;
 	private AudioClip recordClip;
 	private string device;
 
@@ -13,17 +16,32 @@ public class MicrophoneInput : MonoBehaviour {
 	}
 
 	void Start() {
+		Microphone.End(device);
 		recordClip = Microphone.Start(device, true, 300, 44100);
 	}
 
 	void Update() {
-		volume = GetVolume();
+		volume = GetMaxVolume() * boost;
 	}
 
-	float GetVolume() {
-		float[] samples = new float[1];
-		// 每帧从 recordClip 的当前位置采样并填充到 samples 数组，采样的值是一个 -1 到 1 的浮点数
-		recordClip.GetData(samples, Microphone.GetPosition(device));
-		return samples[0];
+	// 利用 Microphone.GetPosition 获得当前进度，往前计算一段 sample 数据，找出一个峰值代表这段时间的音量大小
+	float GetMaxVolume() {
+		float[] samples = new float[sampleLength];
+
+		int pos = Microphone.GetPosition(device);
+		int offset = pos - sampleLength + 1;
+
+		if (offset < 0)
+			return 0;
+
+		recordClip.GetData(samples, offset);
+
+		float max = 0;
+		for (int i = 0; i < sampleLength; i++) {
+			float v = samples[i];
+			if (v > max)
+				max = v;
+		}
+		return max;
 	}
 }
