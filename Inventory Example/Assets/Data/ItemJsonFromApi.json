@@ -3,12 +3,12 @@
         {
             "id": 1,
             "name": "gun1",
-            "sprite": "gun1.png"
+            "sprite": "a100"
         },
         {
             "id": 2,
             "name": "gun2",
-            "sprite": "gun2.png"
+            "sprite": "a101"
         }
     ],
     "total": 2
