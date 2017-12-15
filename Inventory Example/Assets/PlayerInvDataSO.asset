@@ -8,9 +8,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7efb77914bfcc884ea528dce88a197da, type: 3}
-  m_Name: PlayerInvItems
+  m_Script: {fileID: 11500000, guid: 2352313bb5d739d4ca3c7d52b394dc20, type: 3}
+  m_Name: PlayerInvDataSO
   m_EditorClassIdentifier: 
-  items:
+  data:
+  - {fileID: 114040117571575802, guid: c51358e4e010ca243a76fbf9c874b132, type: 2}
   - {fileID: 114606358036456768, guid: c6b59a11f501f294d87d842be957b479, type: 2}
   - {fileID: 114602888021400010, guid: bfc704d7ccbc88a4989d1c3338c4c7eb, type: 2}

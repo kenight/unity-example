@@ -82,7 +82,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 3
-  name: Sword Silver
+  itemName: Sword Silver
   spriteRenderer: {fileID: 212323207135454834}
 --- !u!212 &212323207135454834
 SpriteRenderer:
