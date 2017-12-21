@@ -16,6 +16,7 @@ public class StartMenu : MonoBehaviour {
 		if (input.text.Length > 0) {
 			// Set name
 			GameManager.instance.playerName = input.text;
+			GameManager.instance.playerPrefs.playerName = input.text;
 			// Load scene
 			SceneManager.LoadScene(1);
 		}

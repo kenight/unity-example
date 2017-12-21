@@ -5,6 +5,7 @@ using UnityEngine;
 public class GameManager : MonoBehaviour {
 
 	public static GameManager instance;
+	public PlayerPrefsSo playerPrefs;
 	public string playerName;
 
 	void Awake() {
@@ -13,6 +14,8 @@ public class GameManager : MonoBehaviour {
 		} else {
 			instance = this;
 			DontDestroyOnLoad(gameObject);
+			// Init preference
+			playerName = playerPrefs.playerName;
 		}
 	}
 
