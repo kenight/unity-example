@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour {
 	public static GameManager instance;
 	public PlayerPrefsSo playerPrefs;
 	public string playerName;
+	public int playerIndex;
 
 	void Awake() {
 		if (instance) {

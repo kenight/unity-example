@@ -22,4 +22,8 @@ public class StartMenu : MonoBehaviour {
 		}
 	}
 
+	public void SelectPlayer(int index) {
+		GameManager.instance.playerIndex = index;
+	}
+
 }
