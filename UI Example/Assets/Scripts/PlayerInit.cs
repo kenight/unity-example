@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class InitPlayer : MonoBehaviour {
+public class PlayerInit : MonoBehaviour {
 
 	public Text playerNameText;
 	public SpriteRenderer bodyRenderer;
