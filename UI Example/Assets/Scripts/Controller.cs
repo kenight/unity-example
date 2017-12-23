@@ -8,7 +8,7 @@ public class Controller : MonoBehaviour {
 	public float maxSpeed = 10;
 	public float power = 500;
 	public GameObject target;
-	public GameObject bullet;
+	public GameObject bulletPrefab;
 
 	private Transform cannon;
 	private Transform spawnPoint;
@@ -45,7 +45,7 @@ public class Controller : MonoBehaviour {
 
 	// Apply to Fire Button
 	public void Fire(float factor) {
-		GameObject _bullet = Instantiate(bullet, spawnPoint.position, Quaternion.identity);
+		GameObject _bullet = Instantiate(bulletPrefab, spawnPoint.position, Quaternion.identity);
 		_bullet.GetComponent<Rigidbody2D>().AddForce(cannon.right * power * factor);
 	}
 

@@ -297,6 +297,52 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 64107682}
+--- !u!1001 &171123433
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4279733315906186, guid: eca8d3ad41d4ca940b32443385fda996, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4279733315906186, guid: eca8d3ad41d4ca940b32443385fda996, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4279733315906186, guid: eca8d3ad41d4ca940b32443385fda996, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4279733315906186, guid: eca8d3ad41d4ca940b32443385fda996, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4279733315906186, guid: eca8d3ad41d4ca940b32443385fda996, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4279733315906186, guid: eca8d3ad41d4ca940b32443385fda996, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4279733315906186, guid: eca8d3ad41d4ca940b32443385fda996, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4279733315906186, guid: eca8d3ad41d4ca940b32443385fda996, type: 2}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1782250654885504, guid: eca8d3ad41d4ca940b32443385fda996, type: 2}
+      propertyPath: m_Name
+      value: Player (1)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: eca8d3ad41d4ca940b32443385fda996, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &300525026
 GameObject:
   m_ObjectHideFlags: 0
@@ -2830,4 +2876,5 @@ MonoBehaviour:
   maxSpeed: 10
   power: 500
   target: {fileID: 1574278877}
-  bullet: {fileID: 1601658989170860, guid: 52d8672d6d91583499402106a918f3a0, type: 2}
+  bulletPrefab: {fileID: 1601658989170860, guid: 52d8672d6d91583499402106a918f3a0,
+    type: 2}
