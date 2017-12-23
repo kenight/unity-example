@@ -13,7 +13,7 @@ public class StartMenu : MonoBehaviour {
 	}
 
 	public void PlayNow() {
-		if (input.text.Length > 0) {
+		if (input.text.Trim().Length > 0) {
 			// Set name
 			GameManager.instance.playerName = input.text;
 			GameManager.instance.playerPrefs.playerName = input.text;

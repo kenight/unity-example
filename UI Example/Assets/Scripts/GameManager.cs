@@ -7,7 +7,7 @@ public class GameManager : MonoBehaviour {
 	public static GameManager instance;
 	public PlayerPrefsSo playerPrefs;
 	public string playerName;
-	public int playerIndex;
+	public int playerIndex = 0;
 
 	void Awake() {
 		if (instance) {
@@ -15,7 +15,7 @@ public class GameManager : MonoBehaviour {
 		} else {
 			instance = this;
 			DontDestroyOnLoad(gameObject);
-			// Init preference
+			// Init playerName from playerPrefs
 			playerName = playerPrefs.playerName;
 		}
 	}

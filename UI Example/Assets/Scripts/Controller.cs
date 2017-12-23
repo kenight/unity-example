@@ -2,19 +2,22 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerController : MonoBehaviour {
+public class Controller : MonoBehaviour {
 
 	public float speed = 5;
 	public float maxSpeed = 10;
 	public float power = 500;
-	public GameObject cannon;
+	public GameObject target;
 	public GameObject bullet;
-	public Transform spwanPoint;
 
+	private Transform cannon;
+	private Transform spawnPoint;
 	private Rigidbody2D rbody;
 
 	void Awake() {
-		rbody = GetComponent<Rigidbody2D>();
+		cannon = target.transform.Find("Body/Cannon");
+		spawnPoint = target.transform.Find("Body/Cannon/SpawnPoint");
+		rbody = target.GetComponent<Rigidbody2D>();
 	}
 
 	// Apply to MoveButton
@@ -37,13 +40,13 @@ public class PlayerController : MonoBehaviour {
 
 	// Apply to Aim Slider
 	public void Aim(float angle) {
-		cannon.transform.localRotation = Quaternion.Euler(0, 0, -angle);
+		cannon.localRotation = Quaternion.Euler(0, 0, -angle);
 	}
 
 	// Apply to Fire Button
 	public void Fire(float factor) {
-		GameObject _bullet = Instantiate(bullet, spwanPoint.position, Quaternion.identity);
-		_bullet.GetComponent<Rigidbody2D>().AddForce(cannon.transform.right * power * factor);
+		GameObject _bullet = Instantiate(bullet, spawnPoint.position, Quaternion.identity);
+		_bullet.GetComponent<Rigidbody2D>().AddForce(cannon.right * power * factor);
 	}
 
 }

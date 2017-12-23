@@ -154,7 +154,6 @@ GameObject:
   - component: {fileID: 70984096360277756}
   - component: {fileID: 95617075404907412}
   - component: {fileID: 114825017061236132}
-  - component: {fileID: 114041917247270410}
   - component: {fileID: 114860332260577146}
   m_Layer: 8
   m_Name: Player
@@ -285,23 +284,6 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!114 &114041917247270410
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1782250654885504}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3f4dff27aaee8bc4fa3cb44a089425a9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 3
-  maxSpeed: 8
-  power: 500
-  cannon: {fileID: 1706102950497024}
-  bullet: {fileID: 1601658989170860, guid: 52d8672d6d91583499402106a918f3a0, type: 2}
-  spwanPoint: {fileID: 4873790402687354}
 --- !u!114 &114066062125232172
 MonoBehaviour:
   m_ObjectHideFlags: 1
