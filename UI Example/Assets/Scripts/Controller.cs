@@ -7,6 +7,7 @@ public class Controller : MonoBehaviour {
 	public float speed = 5;
 	public float maxSpeed = 10;
 	public float power = 500;
+	[HideInInspector]
 	public GameObject target;
 	public GameObject bulletPrefab;
 
@@ -14,7 +15,8 @@ public class Controller : MonoBehaviour {
 	private Transform spawnPoint;
 	private Rigidbody2D rbody;
 
-	void Awake() {
+	// target 通过 PhotonNetwork.Instantiate 实例化并传递给 Controller, 注意加载顺序
+	void Start() {
 		cannon = target.transform.Find("Body/Cannon");
 		spawnPoint = target.transform.Find("Body/Cannon/SpawnPoint");
 		rbody = target.GetComponent<Rigidbody2D>();

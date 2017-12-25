@@ -6,25 +6,26 @@ using UnityEngine.UI;
 
 public class StartMenu : MonoBehaviour {
 
-	public InputField input;
-	public Launcher launcher;
+	public InputField inputField;
+	public LobbyManager lobbyManager;
+
+	private string _inputValue;
 
 	void Start() {
-		input.text = GameManager.instance.playerName;
+		inputField.text = GameManager.instance.playerName;
 	}
 
 	public void PlayNow() {
-		if (input.text.Trim().Length > 0) {
+		_inputValue = inputField.text;
+
+		if (inputField.text.Trim().Length > 0) {
 			// Set name
-			GameManager.instance.playerName = input.text;
-			GameManager.instance.playerPrefs.playerName = input.text;
-			PhotonNetwork.playerName = input.text;
+			GameManager.instance.playerName = _inputValue;
+			GameManager.instance.playerPrefs.playerName = _inputValue;
+			PhotonNetwork.playerName = _inputValue;
 
-			// Connecting to server
-			launcher.Connect();
-
-			// Load scene
-			// SceneManager.LoadScene(1);
+			// Join or create a room
+			lobbyManager.JoinRoom();
 		}
 	}
 

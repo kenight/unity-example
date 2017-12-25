@@ -9,6 +9,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 28498f40a49bbbc449021e1b6d6fb187, type: 3}
-  m_Name: PlayerPrefs
+  m_Name: PlayerPrefsSo
   m_EditorClassIdentifier: 
-  playerName: 
+  playerName: maiyo
