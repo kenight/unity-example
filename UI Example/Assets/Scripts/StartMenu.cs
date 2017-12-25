@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class StartMenu : MonoBehaviour {
 
 	public InputField input;
+	public Launcher launcher;
 
 	void Start() {
 		input.text = GameManager.instance.playerName;
@@ -17,8 +18,13 @@ public class StartMenu : MonoBehaviour {
 			// Set name
 			GameManager.instance.playerName = input.text;
 			GameManager.instance.playerPrefs.playerName = input.text;
+			PhotonNetwork.playerName = input.text;
+
+			// Connecting to server
+			launcher.Connect();
+
 			// Load scene
-			SceneManager.LoadScene(1);
+			// SceneManager.LoadScene(1);
 		}
 	}
 
