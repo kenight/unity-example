@@ -16,6 +16,9 @@ PhotonView.isMine
 假设 ClientA 创建了 PhotonView[1], 虽然 PhotonView[1] 在多个客户端都存在(在同步后，存在于本地与远程客户端)
 但 isMine 标识的只是本地客户端中的 PhotonView[1]
 
+PhotonPlayer
+房间中 Player 的一个代表或摘要, 通过 photonView.owner 可以获取自己的 Player
+
 三种同步方式：
 
 1.Object Synchronization

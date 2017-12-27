@@ -3,13 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class PlayerNetworking : Photon.MonoBehaviour {
+public class PlayerNetworking : Photon.PunBehaviour, IPunObservable {
 
 	public PlayerController playerController;
 	public GameObject controlUI;
 	public Text playerNameText;
-	public SpriteRenderer bodyRenderer;
-	public Sprite[] roleList;
 
 	private Transform cannon;
 	private Quaternion receivedCannonRot = Quaternion.identity;
@@ -19,10 +17,10 @@ public class PlayerNetworking : Photon.MonoBehaviour {
 	}
 
 	void Start() {
-		if (photonView.isMine) {
-			playerNameText.text = PhotonNetwork.playerName;
-			bodyRenderer.sprite = roleList[MyPlayerSettings.instance.spriteIndex];
-		} else {
+
+		playerNameText.text = photonView.owner.NickName;
+
+		if (!photonView.isMine) {
 			playerController.enabled = false;
 			controlUI.SetActive(false);
 		}
@@ -36,7 +34,7 @@ public class PlayerNetworking : Photon.MonoBehaviour {
 	}
 
 	// 本地数据同步到远程客户端, 注意，针对的是同一个 PhotonView
-	void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info) {
+	public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info) {
 		if (stream.isWriting) {
 			// 发送本地数据
 			stream.SendNext(cannon.rotation);

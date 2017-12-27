@@ -1105,6 +1105,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerPrefab: {fileID: 0}
+  playerSprites: []
 --- !u!1 &697241562
 GameObject:
   m_ObjectHideFlags: 0
@@ -1312,7 +1313,7 @@ GameObject:
   - component: {fileID: 2003415564}
   - component: {fileID: 2003415563}
   m_Layer: 0
-  m_Name: NetworkingManager
+  m_Name: GameManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1331,6 +1332,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerPrefab: {fileID: 1782250654885504, guid: eca8d3ad41d4ca940b32443385fda996,
     type: 2}
+  playerSprites:
+  - {fileID: 21300000, guid: eb2a3813a18fabd4ba08a6f37a89b1eb, type: 3}
+  - {fileID: 21300000, guid: 35282264809cebf4db75d15735d015e6, type: 3}
+  - {fileID: 21300000, guid: 1bc4663b35efc7c4a8d332ef56b1136c, type: 3}
+  - {fileID: 21300000, guid: 4a7537eb0d4f23249b1d7a4b4be509bd, type: 3}
 --- !u!4 &2003415564
 Transform:
   m_ObjectHideFlags: 0
