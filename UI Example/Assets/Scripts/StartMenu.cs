@@ -9,28 +9,18 @@ public class StartMenu : MonoBehaviour {
 	public InputField inputField;
 	public LobbyManager lobbyManager;
 
-	private string _inputValue;
-
-	void Start() {
-		inputField.text = GameManager.instance.playerName;
-	}
-
 	public void PlayNow() {
-		_inputValue = inputField.text;
 
 		if (inputField.text.Trim().Length > 0) {
-			// Set name
-			GameManager.instance.playerName = _inputValue;
-			GameManager.instance.playerPrefs.playerName = _inputValue;
-			PhotonNetwork.playerName = _inputValue;
-
+			// Set NetworkPlayer's Name
+			PhotonNetwork.playerName = inputField.text;
 			// Join or create a room
 			lobbyManager.JoinRoom();
 		}
 	}
 
 	public void SelectPlayer(int index) {
-		GameManager.instance.playerIndex = index;
+		MyPlayerSettings.instance.spriteIndex = index;
 	}
 
 }

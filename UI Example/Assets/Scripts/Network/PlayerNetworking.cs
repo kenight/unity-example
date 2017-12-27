@@ -1,32 +1,47 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerNetworking : Photon.MonoBehaviour {
 
+	public PlayerController playerController;
+	public GameObject controlUI;
+	public Text playerNameText;
+	public SpriteRenderer bodyRenderer;
+	public Sprite[] roleList;
+
 	private Transform cannon;
-	private Quaternion receivedCannonRot = Quaternion.identity; // 先赋值，不然有可能 Lerp 出错
+	private Quaternion receivedCannonRot = Quaternion.identity;
 
 	void Awake() {
 		cannon = transform.Find("Body/Cannon");
 	}
 
+	void Start() {
+		if (photonView.isMine) {
+			playerNameText.text = PhotonNetwork.playerName;
+			bodyRenderer.sprite = roleList[MyPlayerSettings.instance.spriteIndex];
+		} else {
+			playerController.enabled = false;
+			controlUI.SetActive(false);
+		}
+	}
+
 	void Update() {
-		if (!photonView.isMine) {
-			// 通过 OnPhotonSerializeView 同步数据后，改变 cannon 的 rotation 并作平滑处理
+		if (!photonView.isMine) { // 不在修改该 PhotonView 在本地客户端上的值，因为已通过控制器改变，主要目的是把通过本地控制器改变的值，应用到该 PhotonView 的远程示例上，让其他玩家知道
+			// 修改该 PhotonView 在远程客户端上值
 			cannon.transform.rotation = Quaternion.Lerp(cannon.transform.rotation, receivedCannonRot, Time.deltaTime * 10);
 		}
 	}
 
-	// 同步该 PhotonView 的本地与网络数据
-	// 注意一个概念容易混淆
-	// 假设该脚本属于 PhontonView[id is 1], 这里同步只是同步 PhontonView[1] 的在本地操作的数据到网络
+	// 本地数据同步到远程客户端, 注意，针对的是同一个 PhotonView
 	void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info) {
 		if (stream.isWriting) {
-			// 将本地对 Player 的改变数据发送到网络上
+			// 发送本地数据
 			stream.SendNext(cannon.rotation);
 		} else {
-			// 网络上的该 Player 接受数据，并做相应改变
+			// 远程客户端接收数据
 			receivedCannonRot = (Quaternion) stream.ReceiveNext();
 		}
 	}

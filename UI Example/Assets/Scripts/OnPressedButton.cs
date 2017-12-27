@@ -9,12 +9,12 @@ using UnityEngine.UI;
 // 使用时需要切换 Inspector Debug 视图进行设置
 public class OnPressedButton : Button {
 
-	public Controller controller;
+	public PlayerController playerController;
 	public bool toRight = true;
 
 	void Update() {
 		if (IsPressed()) {
-			controller.Move(toRight);
+			playerController.Move(toRight);
 		}
 	}
 

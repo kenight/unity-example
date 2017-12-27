@@ -1,0 +1,32 @@
+--- Photon usage ---
+
+PhotonNetwork.Instantiate
+
+MonoBehaviour.Instantiate 创建的 GameObject 只存在与本地客户端
+PhotonNetwork.Instantiate 创建的 GameObject 除了本地外，还会同步到连入的远程客户端
+由 PhotonNetwork.Instantiate 创建的 GameObject 必须有 PhotonView Component
+
+通过 RPC 方式方式可手动创建 Networked GameObject,
+这一过程说明了 MonoBehaviour.Instantiate 创建的 GameObject 进行同步后，即可变为一个 Networked GameObject
+
+PhotonView
+用于标识 Networked GameObject, 同一个 PhotonView[ID] 存在与多个客户端上
+
+PhotonView.isMine
+假设 ClientA 创建了 PhotonView[1], 虽然 PhotonView[1] 在多个客户端都存在(在同步后，存在于本地与远程客户端)
+但 isMine 标识的只是本地客户端中的 PhotonView[1]
+
+三种同步方式：
+
+1.Object Synchronization
+通过 OnPhotonSerializeView() 方式同步参数
+PUN 已提供一些 View 组件如 Photon Transform View 等来简化，其内部也是通过 OnPhotonSerializeView() 来实现的
+
+2.Remote Procedure Call (RPC)
+
+3.Custom Properties
+
+
+
+
+

@@ -9,7 +9,7 @@ using UnityEngine.UI;
 // 使用时需要切换 Inspector Debug 视图进行设置
 public class OnFireButton : Button {
 
-	public Controller controller;
+	public PlayerController playerController;
 	public float cdTime = 2;
 	public RectTransform cdBar;
 	public RectTransform powerBar;
@@ -32,7 +32,7 @@ public class OnFireButton : Button {
 			powerProgress.sizeDelta = new Vector2(powerBar.sizeDelta.x * factor, powerProgress.sizeDelta.y);
 		} else if (holdTime > 0) {
 			// power is 0 to 1
-			controller.Fire(factor);
+			playerController.Fire(factor);
 			holdTime = 0;
 			timer = cdTime;
 		}
