@@ -8,7 +8,6 @@ public class ArenaGameManager : Photon.PunBehaviour {
 
 	// 通过 Photon Instantiate 的 prefab 必须放在 Resources 文件夹中
 	public GameObject playerPrefab;
-	public Sprite[] playerSprites;
 
 	void Start() {
 		// Instantiate Player

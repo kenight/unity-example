@@ -28,6 +28,9 @@ PUN 已提供一些 View 组件如 Photon Transform View 等来简化，其内�
 2.Remote Procedure Call (RPC)
 
 3.Custom Properties
+使用 SetCustomProperties() 方法设置值，会自动进行同步
+使用 ExitGames.Client.Photon.Hashtable props = photonView.owner.CustomProperties 获取 Properties
+读取 if (props.ContainsKey("key")) { (int)props["key"] }
 
 
 

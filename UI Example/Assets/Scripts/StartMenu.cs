@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using Hashtable = ExitGames.Client.Photon.Hashtable;
 
 public class StartMenu : MonoBehaviour {
 
@@ -14,6 +15,12 @@ public class StartMenu : MonoBehaviour {
 		if (inputField.text.Trim().Length > 0) {
 			// Set NetworkPlayer's Name
 			PhotonNetwork.playerName = inputField.text;
+
+			// Set CustomProperties
+			Hashtable props = new Hashtable();
+			props.Add("spriteIndex", MyPlayerSettings.instance.spriteIndex);
+			PhotonNetwork.player.SetCustomProperties(props);
+
 			// Join or create a room
 			lobbyManager.JoinRoom();
 		}

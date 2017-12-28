@@ -6,6 +6,8 @@ using UnityEngine.UI;
 public class PlayerNetworking : Photon.PunBehaviour, IPunObservable {
 
 	public PlayerController playerController;
+	public Sprite[] playerSprites;
+	public SpriteRenderer playerSprite;
 	public GameObject controlUI;
 	public Text playerNameText;
 
@@ -19,6 +21,12 @@ public class PlayerNetworking : Photon.PunBehaviour, IPunObservable {
 	void Start() {
 
 		playerNameText.text = photonView.owner.NickName;
+
+		// 从 Custom Properties 中读取
+		ExitGames.Client.Photon.Hashtable playerProps = photonView.owner.CustomProperties;
+		if (playerProps.ContainsKey("spriteIndex")) {
+			playerSprite.sprite = playerSprites[(int) playerProps["spriteIndex"]];
+		}
 
 		if (!photonView.isMine) {
 			playerController.enabled = false;
