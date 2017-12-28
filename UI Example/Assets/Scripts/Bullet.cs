@@ -18,7 +18,12 @@ public class Bullet : MonoBehaviour {
 			other.gameObject.GetComponent<PlayerHealth>().TakeDamage(damage);
 			// Explosion
 			Instantiate(explosionPrefab, transform.position, Quaternion.identity);
+			// Destory gameObject
 			Destroy(gameObject);
+
+			// 子弹同步问题
+			// 粒子播放后销毁
+			// 血条更新
 		}
 	}
 

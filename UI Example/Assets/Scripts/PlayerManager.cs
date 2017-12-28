@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class PlayerNetworking : Photon.PunBehaviour, IPunObservable {
+public class PlayerManager : Photon.PunBehaviour, IPunObservable {
 
 	public PlayerController playerController;
 	public Sprite[] playerSprites;

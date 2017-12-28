@@ -44,7 +44,8 @@ public class PlayerController : MonoBehaviour {
 
 	// Apply to Fire Button
 	public void Fire(float factor) {
-		GameObject _bullet = Instantiate(bulletPrefab, spawnPoint.position, Quaternion.identity);
+		// Instantiate networked gameObject
+		GameObject _bullet = PhotonNetwork.Instantiate(bulletPrefab.name, spawnPoint.position, Quaternion.identity, 0);
 		_bullet.GetComponent<Rigidbody2D>().AddForce(cannon.right * power * factor);
 	}
 
