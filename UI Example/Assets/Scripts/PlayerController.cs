@@ -8,6 +8,7 @@ public class PlayerController : MonoBehaviour {
 	public float maxSpeed = 10;
 	public float power = 500;
 	public GameObject bulletPrefab;
+	public bool controlled = true;
 
 	private Transform cannon;
 	private Transform spawnPoint;
@@ -21,6 +22,9 @@ public class PlayerController : MonoBehaviour {
 
 	// Apply to MoveButton
 	public void Move(bool toRight) {
+		if (!controlled)
+			return;
+
 		Vector2 direction = Vector2.zero;
 		if (toRight)
 			direction = Vector2.right;
@@ -39,13 +43,27 @@ public class PlayerController : MonoBehaviour {
 
 	// Apply to Aim Slider
 	public void Aim(float angle) {
+		if (!controlled)
+			return;
+
 		cannon.localRotation = Quaternion.Euler(0, 0, -angle);
 	}
 
 	// Apply to Fire Button
 	public void Fire(float factor) {
+		if (!controlled)
+			return;
+
+		PhotonView.Get(this).RPC("SpawnBullet", PhotonTargets.All, factor);
+
 		// Instantiate networked gameObject
-		GameObject _bullet = PhotonNetwork.Instantiate(bulletPrefab.name, spawnPoint.position, Quaternion.identity, 0);
+		// GameObject _bullet = PhotonNetwork.Instantiate(bulletPrefab.name, spawnPoint.position, Quaternion.identity, 0);
+		// _bullet.GetComponent<Rigidbody2D>().AddForce(cannon.right * power * factor);
+	}
+
+	[PunRPC]
+	void SpawnBullet(float factor) {
+		GameObject _bullet = Instantiate(bulletPrefab, spawnPoint.position, Quaternion.identity);
 		_bullet.GetComponent<Rigidbody2D>().AddForce(cannon.right * power * factor);
 	}
 

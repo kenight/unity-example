@@ -31,7 +31,9 @@ PhotonPlayer
 PUN 已提供一些 View 组件如 Photon Transform View 等来简化，其内部也是通过 OnPhotonSerializeView() 来实现的
 
 2.Remote Procedure Call (RPC)
-RPC 方法会被同房间里每个玩家(或者说是所有客户端，包括远程与当前本地客户端)在同一个 GameObjcet 上执行，可以触发整个场景效果，对由用户输入等触发的不常用动作很有用。
+RPC 会执行目标 GameObjcet (PhotonView is target) 上的 PunRPC 方法
+RPC 方法会被同房间里每个客户端 (取决于 PhotonTargets) 执行，对由用户输入等触发的不常用动作很有用
+简单的讲：就是先获取要执行方法的游戏对象上的 PhotonView, 在调用 photonView.RPC 方法执行 PunRPC, 然后所有客户端将响应该方法
 
 3.Custom Properties
 使用 SetCustomProperties() 方法设置值，会自动进行同步

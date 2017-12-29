@@ -14,6 +14,7 @@ public class PlayerHealth : MonoBehaviour {
 		playerAnim = GetComponent<Animator>();
 	}
 
+	[PunRPC]
 	public void TakeDamage(int damage) {
 		hp -= damage;
 		playerAnim.SetTrigger("Damage");

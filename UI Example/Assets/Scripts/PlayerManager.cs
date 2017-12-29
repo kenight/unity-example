@@ -29,7 +29,7 @@ public class PlayerManager : Photon.PunBehaviour, IPunObservable {
 		}
 
 		if (!photonView.isMine) {
-			playerController.enabled = false;
+			playerController.controlled = false;
 			controlUI.SetActive(false);
 		}
 	}
