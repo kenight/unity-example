@@ -54,6 +54,7 @@ public class PlayerController : MonoBehaviour {
 		if (!controlled)
 			return;
 
+		// 让所有客户端执行 SpawnBullet 方法
 		PhotonView.Get(this).RPC("SpawnBullet", PhotonTargets.All, factor);
 
 		// Instantiate networked gameObject

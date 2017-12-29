@@ -14,6 +14,7 @@ public class Bullet : MonoBehaviour {
 
 	void OnCollisionEnter2D(Collision2D other) {
 		if (other.gameObject.tag == "Player") {
+			// 碰撞后预表现效果
 			// Take damage RPC
 			PhotonView pv = other.gameObject.GetComponent<PhotonView>();
 			pv.RPC("TakeDamage", PhotonTargets.All, damage);
