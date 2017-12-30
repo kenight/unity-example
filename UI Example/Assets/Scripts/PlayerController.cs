@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerController : MonoBehaviour {
+public class PlayerController : Photon.PunBehaviour {
 
 	public float speed = 5;
 	public float maxSpeed = 10;
@@ -54,17 +54,21 @@ public class PlayerController : MonoBehaviour {
 		if (!controlled)
 			return;
 
-		// 让所有客户端执行 SpawnBullet 方法
-		PhotonView.Get(this).RPC("SpawnBullet", PhotonTargets.All, factor);
+		// 射击流程及命中检测方案
+		// 由攻击者本地上报发射事件，即这里的 Fire
+		// 由 RPC 广播并在所有客户端同步创建子弹
+		// 攻击者客户端检测命中并应用伤害
+		// 其他客户端预表现，但不应用伤害(否则重复计算伤害)
+		// 子弹是客户端本地创建，并未参与同步，所以记录下攻击者 actId, 用于判断在攻击者客户端应用伤害
 
-		// Instantiate networked gameObject
-		// GameObject _bullet = PhotonNetwork.Instantiate(bulletPrefab.name, spawnPoint.position, Quaternion.identity, 0);
-		// _bullet.GetComponent<Rigidbody2D>().AddForce(cannon.right * power * factor);
+		// RPC 所有客户端同步创建子弹
+		PhotonView.Get(this).RPC("SpawnBullet", PhotonTargets.All, factor, photonView.owner.ID);
 	}
 
 	[PunRPC]
-	void SpawnBullet(float factor) {
+	void SpawnBullet(float factor, int sender) {
 		GameObject _bullet = Instantiate(bulletPrefab, spawnPoint.position, Quaternion.identity);
+		_bullet.GetComponent<Bullet>().sender = sender;
 		_bullet.GetComponent<Rigidbody2D>().AddForce(cannon.right * power * factor);
 	}
 

@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class PlayerManager : Photon.PunBehaviour, IPunObservable {
 
 	public PlayerController playerController;
+	public PlayerHealth playerHealth;
 	public Sprite[] playerSprites;
 	public SpriteRenderer playerSprite;
 	public GameObject controlUI;
@@ -19,7 +20,6 @@ public class PlayerManager : Photon.PunBehaviour, IPunObservable {
 	}
 
 	void Start() {
-
 		playerNameText.text = photonView.owner.NickName;
 
 		// 从 Custom Properties 中读取
@@ -35,8 +35,9 @@ public class PlayerManager : Photon.PunBehaviour, IPunObservable {
 	}
 
 	void Update() {
-		if (!photonView.isMine) { // 不在修改该 PhotonView 在本地客户端上的值，因为已通过控制器改变，主要目的是把通过本地控制器改变的值，应用到该 PhotonView 的远程示例上，让其他玩家知道
-			// 修改该 PhotonView 在远程客户端上值
+		// 同步本地的值，所有只需要修改远程客户端 !isMine
+		if (!photonView.isMine) {
+			// 同步 cannon 旋转
 			cannon.transform.rotation = Quaternion.Lerp(cannon.transform.rotation, receivedCannonRot, Time.deltaTime * 10);
 		}
 	}

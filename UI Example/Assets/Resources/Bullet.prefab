@@ -187,6 +187,7 @@ MonoBehaviour:
   lifeTime: 3
   explosionPrefab: {fileID: 198811620834885518, guid: 93226dce5385a7c4a8221df0dc217878,
     type: 2}
+  sender: 0
 --- !u!212 &212337488316958292
 SpriteRenderer:
   m_ObjectHideFlags: 1

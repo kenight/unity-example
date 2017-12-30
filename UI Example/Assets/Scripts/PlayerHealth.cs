@@ -23,7 +23,6 @@ public class PlayerHealth : MonoBehaviour {
 			hp = 0;
 			Dead();
 		}
-
 		UpdateHpBar();
 	}
 
@@ -34,10 +33,10 @@ public class PlayerHealth : MonoBehaviour {
 
 	void Dead() {
 		playerAnim.SetBool("Dead", true);
-
 		// 修改 Layer 忽略碰撞
 		gameObject.layer = LayerMask.NameToLayer("Dead");
 		// 禁用玩家控制
+		GetComponent<PlayerController>().controlled = false;
 	}
 
 }

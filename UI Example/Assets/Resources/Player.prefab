@@ -445,7 +445,6 @@ GameObject:
   - component: {fileID: 114860332260577146}
   - component: {fileID: 114460863239910288}
   - component: {fileID: 114385993881930414}
-  - component: {fileID: 114814028165778608}
   m_Layer: 8
   m_Name: Player
   m_TagString: Player
@@ -806,6 +805,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerController: {fileID: 114350034404903956}
+  playerHealth: {fileID: 114860332260577146}
   playerSprites:
   - {fileID: 21300000, guid: eb2a3813a18fabd4ba08a6f37a89b1eb, type: 3}
   - {fileID: 21300000, guid: 35282264809cebf4db75d15735d015e6, type: 3}
@@ -946,6 +946,7 @@ MonoBehaviour:
   power: 500
   bulletPrefab: {fileID: 1601658989170860, guid: 52d8672d6d91583499402106a918f3a0,
     type: 2}
+  controlled: 1
 --- !u!114 &114375864100871982
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1088,7 +1089,6 @@ MonoBehaviour:
   ObservedComponents:
   - {fileID: 114385993881930414}
   - {fileID: 114154245602344230}
-  - {fileID: 114814028165778608}
   ObservedComponentsFoldoutOpen: 1
   viewIdField: 0
   instantiationId: -1
@@ -1466,29 +1466,6 @@ MonoBehaviour:
   m_Text: 'RIGHT
 
 '
---- !u!114 &114814028165778608
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1782250654885504}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9b8c4a61274f60b4ea5fb4299cfdbf14, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ShowLayerWeightsInspector: 1
-  ShowParameterInspector: 1
-  m_SynchronizeParameters:
-  - Type: 9
-    SynchronizeType: 1
-    Name: Damage
-  - Type: 4
-    SynchronizeType: 1
-    Name: Dead
-  m_SynchronizeLayers:
-  - SynchronizeType: 0
-    LayerIndex: 0
 --- !u!114 &114818211779300476
 MonoBehaviour:
   m_ObjectHideFlags: 1
