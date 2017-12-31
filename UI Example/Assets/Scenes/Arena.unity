@@ -956,7 +956,6 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 470815644}
-  - component: {fileID: 470815645}
   m_Layer: 0
   m_Name: Player 1
   m_TagString: Untagged
@@ -977,18 +976,6 @@ Transform:
   m_Father: {fileID: 1344763234}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &470815645
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 470815643}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2c5ac41a0995dd148ab44fbd0792576f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hasPlayer: 0
 --- !u!1001 &517980969
 Prefab:
   m_ObjectHideFlags: 0
@@ -1146,6 +1133,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerPrefab: {fileID: 0}
+  playerSpawnPoints: {fileID: 0}
 --- !u!1 &697241562
 GameObject:
   m_ObjectHideFlags: 0
@@ -1228,8 +1216,8 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 697241562}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 640, y: 360, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 412, y: 174.5, z: 0}
+  m_LocalScale: {x: 0.64375, y: 0.64375, z: 0.64375}
   m_Children:
   - {fileID: 517980970}
   m_Father: {fileID: 0}
@@ -1248,7 +1236,6 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 806957735}
-  - component: {fileID: 806957736}
   m_Layer: 0
   m_Name: Player 2
   m_TagString: Untagged
@@ -1269,18 +1256,6 @@ Transform:
   m_Father: {fileID: 1344763234}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &806957736
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 806957734}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2c5ac41a0995dd148ab44fbd0792576f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hasPlayer: 0
 --- !u!1 &942991371
 GameObject:
   m_ObjectHideFlags: 0
@@ -1351,7 +1326,6 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 1331942356}
-  - component: {fileID: 1331942357}
   m_Layer: 0
   m_Name: Player 4
   m_TagString: Untagged
@@ -1372,18 +1346,6 @@ Transform:
   m_Father: {fileID: 1344763234}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1331942357
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1331942355}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2c5ac41a0995dd148ab44fbd0792576f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hasPlayer: 0
 --- !u!1 &1344763233
 GameObject:
   m_ObjectHideFlags: 0
@@ -1425,9 +1387,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 1344763233}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b66ec066a5983414598240d572a28dcf, type: 3}
+  m_Script: {fileID: 11500000, guid: 0e56100e5ce56da4e91e5f5e8baea32c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pos:
+  - {fileID: 470815644}
+  - {fileID: 806957735}
+  - {fileID: 2056286920}
+  - {fileID: 1331942356}
 --- !u!1 &1544343175
 GameObject:
   m_ObjectHideFlags: 0
@@ -1498,6 +1465,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerPrefab: {fileID: 1782250654885504, guid: eca8d3ad41d4ca940b32443385fda996,
     type: 2}
+  playerSpawnPoints: {fileID: 1344763235}
 --- !u!4 &2003415564
 Transform:
   m_ObjectHideFlags: 0
@@ -1519,7 +1487,6 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 2056286920}
-  - component: {fileID: 2056286921}
   m_Layer: 0
   m_Name: Player 3
   m_TagString: Untagged
@@ -1540,15 +1507,3 @@ Transform:
   m_Father: {fileID: 1344763234}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2056286921
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2056286919}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2c5ac41a0995dd148ab44fbd0792576f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hasPlayer: 0

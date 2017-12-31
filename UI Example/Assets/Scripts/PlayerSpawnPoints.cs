@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SpawnPoint : MonoBehaviour {
+public class PlayerSpawnPoints : MonoBehaviour {
 
-	public bool hasPlayer = false;
+	public Transform[] pos;
 }

@@ -1,5 +1,2 @@
-新玩家加入，刷新已在玩家的血量与位置 ArenaGameManager OnPhotonPlayerConnected
-出生点问题
 子弹不推动玩家
-死亡重生
 同步击杀死亡
