@@ -17,9 +17,7 @@ public class StartMenu : MonoBehaviour {
 			PhotonNetwork.playerName = inputField.text;
 
 			// Set CustomProperties
-			Hashtable props = new Hashtable();
-			props.Add("spriteIndex", MyPlayerSettings.instance.spriteIndex);
-			PhotonNetwork.player.SetCustomProperties(props);
+			PhotonNetwork.player.SetSprite(MyPlayerSettings.instance.spriteIndex);
 
 			// Join or create a room
 			lobbyManager.JoinRoom();

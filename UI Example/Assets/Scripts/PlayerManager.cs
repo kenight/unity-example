@@ -22,11 +22,9 @@ public class PlayerManager : Photon.PunBehaviour, IPunObservable {
 	void Start() {
 		playerNameText.text = photonView.owner.NickName;
 
-		// 从 Custom Properties 中读取
-		ExitGames.Client.Photon.Hashtable playerProps = photonView.owner.CustomProperties;
-		if (playerProps.ContainsKey("spriteIndex")) {
-			playerSprite.sprite = playerSprites[(int) playerProps["spriteIndex"]];
-		}
+		object index;
+		photonView.owner.CustomProperties.TryGetValue(PlayerExtensions.SpriteProp, out index);
+		playerSprite.sprite = playerSprites[(int) index];
 
 		if (!photonView.isMine) {
 			playerController.controlled = false;
