@@ -30,7 +30,7 @@ public class Bullet : Photon.PunBehaviour {
 				return;
 			// 应用伤害
 			PhotonView pv = other.gameObject.GetComponent<PhotonView>();
-			pv.RPC("TakeDamage", PhotonTargets.All, damage);
+			pv.RPC("TakeDamage", PhotonTargets.All, damage, sender);
 		}
 	}
 

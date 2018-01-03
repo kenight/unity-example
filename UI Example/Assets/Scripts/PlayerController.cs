@@ -31,8 +31,8 @@ public class PlayerController : Photon.PunBehaviour {
 		else
 			direction = Vector2.left;
 
-		float xSpeed = speed * Time.deltaTime * 100;
-		float maxXspeed = maxSpeed * Time.deltaTime * 100;
+		float xSpeed = speed * Time.deltaTime * 100 * 100; // rigidbody mass up to 100, so multiply 100
+		float maxXspeed = maxSpeed * Time.deltaTime * 100 * 100;
 
 		rbody.AddForce(direction * xSpeed);
 

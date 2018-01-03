@@ -24,6 +24,8 @@ public class LobbyManager : Photon.PunBehaviour {
 	// 成功加入房间的回调	
 	public override void OnJoinedRoom() {
 		Debug.Log("LobbyManager -> OnJoinedRoom() : 加入一个随机房间");
+		// if (PhotonNetwork.isMasterClient)
+		// 		PhotonNetwork.LoadLevel("Arena");
 	}
 
 	// 加入房间失败的回调
