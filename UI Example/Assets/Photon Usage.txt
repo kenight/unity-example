@@ -38,7 +38,7 @@ RPC 会执行目标 GameObjcet (PhotonView is target) 上的 PunRPC 方法
 
 3.Custom Properties
 使用 SetCustomProperties() 方法设置值，会自动进行同步，接收 ExitGames.Client.Photon.Hashtable
-多个 properties 使用多个 SetCustomProperties(new Hashtable) 语句，Photon 会将所有 new Hashtable 转换为字符串键值对并封装在一起
+多个 properties 使用多个 SetCustomProperties(new Hashtable) 语句，Photon 会将所有 new Hashtable 转换为字符串键值对并封装在一起（player.CustomProperties）
 
 读取值，方式一：
 使用 ExitGames.Client.Photon.Hashtable props = photonView.owner.CustomProperties 获取 Properties

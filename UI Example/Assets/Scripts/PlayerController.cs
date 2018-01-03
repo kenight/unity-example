@@ -62,11 +62,11 @@ public class PlayerController : Photon.PunBehaviour {
 		// 子弹是客户端本地创建，并未参与同步，所以记录下攻击者 actId, 用于判断在攻击者客户端应用伤害
 
 		// RPC 所有客户端同步创建子弹
-		PhotonView.Get(this).RPC("SpawnBullet", PhotonTargets.All, factor, photonView.owner.ID);
+		PhotonView.Get(this).RPC("SpawnBullet", PhotonTargets.All, factor, photonView.owner);
 	}
 
 	[PunRPC]
-	void SpawnBullet(float factor, int sender) {
+	void SpawnBullet(float factor, PhotonPlayer sender) {
 		GameObject _bullet = Instantiate(bulletPrefab, spawnPoint.position, Quaternion.identity);
 		_bullet.GetComponent<Bullet>().sender = sender;
 		_bullet.GetComponent<Rigidbody2D>().AddForce(cannon.right * power * factor);

@@ -7,7 +7,8 @@ public class Bullet : Photon.PunBehaviour {
 	public int damage = 10;
 	public float lifeTime = 3;
 	public ParticleSystem explosionPrefab;
-	public int sender;
+	[HideInInspector]
+	public PhotonPlayer sender;
 
 	void Start() {
 		Destroy(gameObject, lifeTime);
@@ -25,7 +26,7 @@ public class Bullet : Photon.PunBehaviour {
 			// 其他客户端预表现，但不应用伤害
 			// 子弹是客户端本地创建，并未参与同步，所以记录下攻击者 actId, 用于判断在攻击者客户端应用伤害
 
-			if (PhotonNetwork.player.ID != sender)
+			if (PhotonNetwork.player.ID != sender.ID)
 				return;
 			// 应用伤害
 			PhotonView pv = other.gameObject.GetComponent<PhotonView>();

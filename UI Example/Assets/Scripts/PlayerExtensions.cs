@@ -10,13 +10,38 @@ using Hashtable = ExitGames.Client.Photon.Hashtable;
 
 public static class PlayerExtensions {
 
-	public const string ScoreProp = "score";
+	public const string KillProp = "kill";
+	public const string DeadProp = "dead";
 	public const string SpriteProp = "spriteIndex";
 
-	public static void SetPlayerScore(this PhotonPlayer player, int newScore) {
+	public static void AddKill(this PhotonPlayer player, int num) {
+		int current = player.GetKill();
+		current += num;
 		Hashtable props = new Hashtable();
-		props[PlayerExtensions.ScoreProp] = newScore;
+		props[KillProp] = current;
+		player.SetCustomProperties(props); // SetCustomProperties 会将多个 new Hashtable 转换为字符串键值对并封装在一起（player.CustomProperties）
+	}
+
+	public static void AddDead(this PhotonPlayer player, int num) {
+		int current = player.GetDead();
+		current += num;
+		Hashtable props = new Hashtable();
+		props[DeadProp] = current;
 		player.SetCustomProperties(props);
+	}
+
+	public static int GetKill(this PhotonPlayer player) {
+		object number;
+		if (player.CustomProperties.TryGetValue(KillProp, out number))
+			return (int) number;
+		return 0;
+	}
+
+	public static int GetDead(this PhotonPlayer player) {
+		object number;
+		if (player.CustomProperties.TryGetValue(DeadProp, out number))
+			return (int) number;
+		return 0;
 	}
 
 	public static void SetSprite(this PhotonPlayer player, int index) {

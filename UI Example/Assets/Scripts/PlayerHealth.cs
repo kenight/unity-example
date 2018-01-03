@@ -19,12 +19,14 @@ public class PlayerHealth : Photon.PunBehaviour {
 	}
 
 	[PunRPC]
-	public void TakeDamage(int damage) {
+	public void TakeDamage(int damage, PhotonPlayer attacker) {
 		hp -= damage;
 		playerAnim.SetTrigger("Damage");
 
 		if (hp < 0) {
 			hp = 0;
+			// 击杀计分
+			attacker.AddKill(1);
 			Dead();
 		}
 		UpdateHpBar();
@@ -36,6 +38,9 @@ public class PlayerHealth : Photon.PunBehaviour {
 	}
 
 	void Dead() {
+		// 死亡计分
+		photonView.owner.AddDead(1);
+		// 动画
 		playerAnim.SetBool("Dead", true);
 		// 修改 Layer 忽略碰撞
 		gameObject.layer = LayerMask.NameToLayer("Dead");
