@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Player : MonoBehaviour {
 
-	public float speed = 5f;
+	bool isDynamic = false;
 
 	Rigidbody2D rb;
 
@@ -12,7 +12,11 @@ public class Player : MonoBehaviour {
 		rb = GetComponent<Rigidbody2D>();
 	}
 
-	void FixedUpdate() {
-		rb.AddForce(Vector2.right * speed);
+	void Update() {
+		if (isDynamic == false && Input.GetKeyUp(KeyCode.Space)) {
+			rb.bodyType = RigidbodyType2D.Dynamic;
+			isDynamic = true;
+		}
 	}
+
 }

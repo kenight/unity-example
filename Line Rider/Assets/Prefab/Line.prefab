@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4965231146483448}
   - component: {fileID: 120512194627969074}
   - component: {fileID: 68355516632690704}
+  - component: {fileID: 252954263264561984}
   - component: {fileID: 114324991135609252}
   m_Layer: 0
   m_Name: Line
@@ -50,9 +51,9 @@ EdgeCollider2D:
   m_GameObject: {fileID: 1120077345742492}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 12fd8dfc6a292e44db992b5233f7666c, type: 2}
   m_IsTrigger: 0
-  m_UsedByEffector: 0
+  m_UsedByEffector: 1
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   m_EdgeRadius: 0.04
@@ -160,3 +161,20 @@ LineRenderer:
     generateLightingData: 0
   m_UseWorldSpace: 1
   m_Loop: 0
+--- !u!252 &252954263264561984
+SurfaceEffector2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1120077345742492}
+  m_Enabled: 1
+  m_UseColliderMask: 1
+  m_ColliderMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_Speed: 5
+  m_SpeedVariation: 0
+  m_ForceScale: 0.1
+  m_UseContactForce: 0
+  m_UseFriction: 1
+  m_UseBounce: 1
