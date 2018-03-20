@@ -68,6 +68,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a14ca5a5494b0ff448041135301f671d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  placeHolderPrefab: {fileID: 1551156870039834, guid: b666e9603e6d84445a4f0ccbe9486cd6,
+    type: 2}
+  parentToReturn: {fileID: 0}
 --- !u!222 &222398319497116848
 CanvasRenderer:
   m_ObjectHideFlags: 1

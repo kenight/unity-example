@@ -6,31 +6,24 @@ using UnityEngine.UI;
 
 public class ZoomDroppable : MonoBehaviour, IDropHandler, IPointerEnterHandler, IPointerExitHandler {
 
-	Color originColor;
-
-	void Start() {
-		originColor = GetComponent<Image>().color;
-	}
+	public int maxCount = 4;
 
 	public void OnPointerEnter(PointerEventData e) {
-		if (e.dragging) {
-			Color c = GetComponent<Image>().color;
-			c.a = 0.5f;
-			GetComponent<Image>().color = c;
+		if (!e.dragging)
+			return;
+		CardDraggable cd = e.pointerDrag.GetComponent<CardDraggable>();
+		if (cd != null && this.transform.childCount < maxCount) {
+			cd.placeHolder.SetParent(this.transform);
 		}
 	}
-	public void OnPointerExit(PointerEventData e) {
-		if (e.dragging) {
-			GetComponent<Image>().color = originColor;
-		}
-	}
+
+	public void OnPointerExit(PointerEventData e) { }
 
 	public void OnDrop(PointerEventData e) {
 		CardDraggable cd = e.pointerDrag.GetComponent<CardDraggable>();
-		if (cd != null) {
-			cd.parentToReturn = this.transform;
+		if (cd != null && this.transform.childCount < maxCount) {
+			cd.placeHolder.SetParent(this.transform);
 		}
-		GetComponent<Image>().color = originColor;
 	}
 
 }

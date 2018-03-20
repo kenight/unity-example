@@ -6,42 +6,51 @@ using UnityEngine.UI;
 
 public class CardDraggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler {
 
-    public Transform parentToReturn;
+    public GameObject placeHolderPrefab;
 
-    // 拖拽时，创建一个空物体作为占位符，实现后续交换卡牌等逻辑
-    GameObject placeHolder;
+    // 拖拽时，创建一个占位符，占位符的位置即卡牌的新位置
+    [HideInInspector]
+    public Transform placeHolder;
 
     public void OnBeginDrag(PointerEventData e) {
-        // 记录本来的父级，如果没有 Drop 到其他位置，则释放时回到本来的父级下
-        parentToReturn = transform.parent;
-        // 创建占位物体
+        // 创建 placeHolder
         CreatePlaceHolder();
         // 开始拖拽后，将物体置于本层级之上
-        transform.SetParent(parentToReturn.parent);
+        transform.SetParent(placeHolder.parent.parent);
         // 开始拖拽后，忽略射线检测。如果没有其他子物体可以使用 GetComponent<Image>().raycastTarget = false 
         GetComponent<CanvasGroup>().blocksRaycasts = false;
     }
 
     public void OnDrag(PointerEventData e) {
         transform.position = e.position;
+
+        // 判断拖拽中的卡牌的坐标是否超过哪个子物体的坐标
+        // 如果超过，则取代它的 SiblingIndex 到达交互的效果
+        for (int i = 0; i < placeHolder.parent.childCount; i++) {
+            if (transform.position.x - 75 < placeHolder.parent.GetChild(i).transform.position.x) {
+                placeHolder.SetSiblingIndex(i);
+                break;
+            }
+        }
     }
 
     public void OnEndDrag(PointerEventData e) {
-        transform.SetParent(parentToReturn);
-        transform.SetSiblingIndex(placeHolder.transform.GetSiblingIndex());
+        transform.SetParent(placeHolder.parent);
+        transform.SetSiblingIndex(placeHolder.GetSiblingIndex());
         GetComponent<CanvasGroup>().blocksRaycasts = true;
 
         // 完成时，删除占位符
-        Destroy(placeHolder);
+        Destroy(placeHolder.gameObject);
     }
 
     void CreatePlaceHolder() {
-        placeHolder = new GameObject();
-        placeHolder.name = "PlaceHolder";
-        RectTransform rectTransform = placeHolder.AddComponent<RectTransform>();
-        rectTransform.sizeDelta = GetComponent<RectTransform>().sizeDelta;
-        placeHolder.transform.SetParent(parentToReturn);
-        placeHolder.transform.SetSiblingIndex(transform.GetSiblingIndex());
+        placeHolder = Instantiate(placeHolderPrefab).transform;
+        // placeHolder = new GameObject();
+        // placeHolder.name = "PlaceHolder";
+        // RectTransform rectTransform = placeHolder.AddComponent<RectTransform>();
+        // rectTransform.sizeDelta = GetComponent<RectTransform>().sizeDelta;
+        placeHolder.SetSiblingIndex(transform.GetSiblingIndex());
+        placeHolder.SetParent(transform.parent);
     }
 
 }
