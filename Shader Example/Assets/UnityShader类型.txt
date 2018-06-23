@@ -1,0 +1,15 @@
+Unity 中主要有三种 shader 类型
+
+Surface Shaders
+带光照，根据 #pragma 的定义，自动生成光照处理的代码
+
+Vertex and Fragment Shaders (Unlit Shader/Image Effect Shader)
+完成的手写 shader，需要自己实现光照代码
+Unlit Shader / Image Effect Shader 都属于 Vertex and Fragment Shaders 并没有区别，都需要实现 vert 与 frag 函数，仅仅是模板不一样
+
+Fixed Function Shaders
+原始的 shader，代码中不带 CGPROGRAM ENDCG 语句块的就是 Fixed Function Shaders
+
+
+
+
