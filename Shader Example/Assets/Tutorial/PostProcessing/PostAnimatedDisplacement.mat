@@ -4,7 +4,7 @@
 Material:
   serializedVersion: 6
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: PostAnimatedDisplacement
   m_Shader: {fileID: 4800000, guid: 194eeda0645f1c644b9017344600ef16, type: 3}
@@ -27,5 +27,5 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - _Magnitude: 0.0073
+    - _Magnitude: 0.0299
     m_Colors: []

@@ -4,7 +4,7 @@
 Material:
   serializedVersion: 6
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: Sprite Deformer 2
   m_Shader: {fileID: 4800000, guid: 27fafff1c224b0e4081b85f9b891de1a, type: 3}
@@ -19,7 +19,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _DeformerTex:
-        m_Texture: {fileID: 2800000, guid: 69864a043f5e6394d8c6dd616f127e85, type: 3}
+        m_Texture: {fileID: 2800000, guid: 0765a6e8d7423294e9fe6f7915950f34, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
@@ -27,7 +27,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MaskTex:
-        m_Texture: {fileID: 2800000, guid: 5c2001fda6b0ebe4a88f7df8dd57b0a1, type: 3}
+        m_Texture: {fileID: 2800000, guid: ca92fddc161029346b8753891faaa8cc, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:

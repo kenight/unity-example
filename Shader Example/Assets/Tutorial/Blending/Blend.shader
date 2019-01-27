@@ -8,6 +8,8 @@
 	{
 		// 渲染像素 * 渲染像素 alpha + 已有像素 * (1 - 渲染像素 alpha)
 		// 结果就是，不透明的像素用新像素，透明的像素用已有像素
+		Tags {"Queue"="Transparent" "IgnoreProjector"="True" "RenderType"="Transparent"}
+		ZWrite Off
 		Blend SrcAlpha OneMinusSrcAlpha
 
 		Pass

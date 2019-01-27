@@ -62,7 +62,7 @@
 			
 			fixed4 frag (v2f i) : SV_Target
 			{
-				half3 tNormal = UnpackNormal(tex2D(_BumpMap, i.uv)); // UnpackNormal 可以把 -1, 1 转换到 0, 1
+				half3 tNormal = UnpackNormal(tex2D(_BumpMap, i.uv));
 				// transform normal from tangent to world space
 				half3 worldNormal;
 				worldNormal.x = dot(i.tanToWorX, tNormal);
